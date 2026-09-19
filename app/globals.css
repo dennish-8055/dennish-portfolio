@@ -1,26 +1,488 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* =========================================================
+   BASE
+   ========================================================= */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background: #070b14;
+  color: white;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(96, 165, 250, 0.3);
+  color: white;
+}
+
+/* =========================================================
+   GLOBAL SMOOTHNESS
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.nav-link {
+  position: relative;
+  color: rgb(209 213 219);
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.nav-link:hover {
+  color: white;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  width: 0;
+  height: 1px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    #60a5fa,
+    #a78bfa
+  );
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* =========================================================
+   SECTION HEADINGS
+   ========================================================= */
+
+.section-label {
+  margin-bottom: 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: #60a5fa;
+}
+
+.section-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+}
+
+@media (min-width: 640px) {
+  .section-title {
+    font-size: 3rem;
+  }
+}
+
+/* =========================================================
+   HERO ANIMATIONS
+   ========================================================= */
+
+.animate-fade-up {
+  animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-fade-up-delay {
+  animation: fadeUp 0.9s 0.15s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-float {
+  animation: floating 6s ease-in-out infinite;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floating {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* =========================================================
+   SKILL CARDS
+   ========================================================= */
+
+.skill-card {
+  position: relative;
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.5rem;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.045),
+      rgba(255, 255, 255, 0.015)
+    );
+
+  padding: 1.75rem;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.03),
+    0 20px 50px rgba(0, 0, 0, 0.12);
+
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.4s ease,
+    background 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.skill-card::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(96, 165, 250, 0.08),
+      transparent 45%
+    );
+
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-6px);
+
+  border-color: rgba(255, 255, 255, 0.16);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.06),
+      rgba(255, 255, 255, 0.02)
+    );
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 25px 70px rgba(0, 0, 0, 0.22);
+}
+
+.skill-card:hover::before {
+  opacity: 1;
+}
+
+.skill-blue:hover {
+  border-color: rgba(96, 165, 250, 0.4);
+}
+
+.skill-purple:hover {
+  border-color: rgba(167, 139, 250, 0.4);
+}
+
+.skill-cyan:hover {
+  border-color: rgba(34, 211, 238, 0.4);
+}
+
+.skill-green:hover {
+  border-color: rgba(74, 222, 128, 0.4);
+}
+
+.skill-orange:hover {
+  border-color: rgba(251, 146, 60, 0.4);
+}
+
+.skill-pink:hover {
+  border-color: rgba(244, 114, 182, 0.4);
+}
+
+/* =========================================================
+   PROJECT CARDS
+   ========================================================= */
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.5rem;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.045),
+      rgba(255, 255, 255, 0.015)
+    );
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.03),
+    0 20px 60px rgba(0, 0, 0, 0.15);
+
+  transition:
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.5s ease,
+    background 0.5s ease,
+    box-shadow 0.5s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.06),
+      rgba(255, 255, 255, 0.02)
+    );
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 30px 90px rgba(0, 0, 0, 0.28);
+}
+
+.project-blue:hover {
+  border-color: rgba(96, 165, 250, 0.35);
+}
+
+.project-purple:hover {
+  border-color: rgba(167, 139, 250, 0.35);
+}
+
+.project-cyan:hover {
+  border-color: rgba(34, 211, 238, 0.35);
+}
+
+/* =========================================================
+   PROJECT VISUAL AREAS
+   ========================================================= */
+
+.project-visual {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  isolation: isolate;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(59, 130, 246, 0.16),
+      transparent 65%
+    );
+}
+
+.project-visual::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    );
+
+  background-size: 40px 40px;
+
+  opacity: 0.55;
+
+  transition:
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.5s ease;
+}
+
+.project-visual::after {
+  content: "";
+
+  position: absolute;
+  width: 220px;
+  height: 220px;
+
+  border-radius: 999px;
+
+  background: rgba(96, 165, 250, 0.08);
+
+  filter: blur(60px);
+
+  transition:
+    transform 0.8s ease,
+    opacity 0.5s ease;
+}
+
+.project-card:hover .project-visual::before {
+  transform: scale(1.08);
+  opacity: 0.8;
+}
+
+.project-card:hover .project-visual::after {
+  transform: scale(1.25);
+}
+
+/* Project colours */
+
+.project-blue .project-visual {
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(59, 130, 246, 0.2),
+      transparent 65%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(59, 130, 246, 0.14),
+      rgba(139, 92, 246, 0.06),
+      transparent
+    );
+}
+
+.project-purple .project-visual {
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(139, 92, 246, 0.2),
+      transparent 65%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(139, 92, 246, 0.14),
+      rgba(236, 72, 153, 0.06),
+      transparent
+    );
+}
+
+.project-cyan .project-visual {
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(34, 211, 238, 0.2),
+      transparent 65%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(34, 211, 238, 0.14),
+      rgba(59, 130, 246, 0.06),
+      transparent
+    );
+}
+
+/* =========================================================
+   SOFT GLASS EFFECT
+   ========================================================= */
+
+.glass {
+  background: rgba(255, 255, 255, 0.035);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.03),
+    0 20px 60px rgba(0, 0, 0, 0.15);
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #070b14;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.25);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.4);
+}
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 639px) {
+  .section-title {
+    font-size: 2.1rem;
+  }
+
+  .skill-card,
+  .project-card {
+    border-radius: 1.25rem;
+  }
+
+  .project-card:hover {
+    transform: translateY(-4px);
+  }
 }
