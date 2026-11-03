@@ -35,11 +35,27 @@ const skills = [
     color: "green",
     items: [
       "Manual Testing",
+      "API Testing",
+      "Postman",
       "Test Cases",
       "Test Scenarios",
       "Functional Testing",
       "Regression Testing",
       "Smoke Testing",
+    ],
+  },
+  {
+    title: "Cybersecurity & Networking",
+    icon: "⌁",
+    color: "pink",
+    items: [
+      "Wazuh",
+      "SIEM Fundamentals",
+      "Wireshark",
+      "Network Traffic Analysis",
+      "Phishing Email Analysis",
+      "Computer Networks",
+      "Ethical Hacking Fundamentals",
     ],
   },
   {
@@ -56,9 +72,9 @@ const skills = [
       "AWS Basics",
       "OOP",
       "DBMS",
-      "Computer Networks",
       "SDLC",
       "STLC",
+      "Application Deployment",
     ],
   },
 ];
@@ -66,19 +82,19 @@ const skills = [
 const projects = [
   {
     number: "01",
-    title: "Reddit Clone",
-    category: "Full Stack",
+    title: "Wazuh SOC Home Lab",
+    category: "Cybersecurity / SIEM",
     description:
-      "A full-stack Reddit-style community platform with community creation, posting, commenting, voting, image uploads, and protected user workflows.",
+      "A hands-on SOC home lab using Wazuh to monitor a Windows endpoint, collect security events, and explore endpoint activity through the SIEM dashboard.",
     technologies: [
-      "Next.js",
-      "TypeScript",
-      "Prisma",
-      "PostgreSQL",
-      "Clerk",
+      "Wazuh",
+      "SIEM",
+      "Windows 11",
+      "Docker",
+      "Endpoint Monitoring",
     ],
     color: "blue",
-    github: "https://github.com/dennish-8055/Reddit-Clone",
+    github: "https://github.com/dennish-8055/Wazuh-SOC-Home-Lab",
   },
   {
     number: "02",
@@ -98,19 +114,89 @@ const projects = [
   },
   {
     number: "03",
-    title: "Intelligent Heart Disease Prediction System",
-    category: "Machine Learning",
+    title: "Phishing Email Investigation Tool",
+    category: "Cybersecurity / Python",
     description:
-      "A machine learning web application that provides heart disease risk predictions through a Django-based application with input validation, authentication, and structured data handling.",
+      "A Python-based email triage tool that analyzes .eml files, examines email headers, extracts URLs, checks sender and Reply-To details, and produces structured JSON reports.",
     technologies: [
       "Python",
+      "Email Analysis",
+      "URL Extraction",
+      "Regex",
+      "JSON",
+      "Unit Testing",
+    ],
+    color: "cyan",
+    github: "https://github.com/dennish-8055/Phishing-Email-Investigation",
+  },
+  {
+    number: "04",
+    title: "Wireshark Network Investigation",
+    category: "Networking",
+    description:
+      "A beginner network traffic investigation project using Wireshark to examine DNS, TCP, and TLS traffic and understand packet-level network communication.",
+    technologies: [
+      "Wireshark",
+      "DNS",
+      "TCP",
+      "TLS",
+      "Packet Analysis",
+      "Networking",
+    ],
+    color: "blue",
+    github: "https://github.com/dennish-8055/Wireshark-Network-Investigation",
+  },
+  {
+    number: "05",
+    title: "REST API Testing with Postman",
+    category: "Software Testing / API",
+    description:
+      "An API testing project covering GET, POST, PUT, PATCH, and DELETE requests, with Postman test scripts used to validate API responses and behavior.",
+    technologies: [
+      "Postman",
+      "REST APIs",
+      "GET",
+      "POST",
+      "PUT",
+      "PATCH",
+      "DELETE",
+    ],
+    color: "purple",
+    github: "https://github.com/dennish-8055/REST-API-Testing-Postman",
+  },
+  {
+    number: "06",
+    title: "Reddit Clone",
+    category: "Full Stack",
+    description:
+      "A full-stack Reddit-style community platform with community creation, posting, commenting, voting, image uploads, and protected user workflows.",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Prisma",
+      "Neon PostgreSQL",
+      "Clerk",
+      "UploadThing",
+      "Tailwind CSS",
+    ],
+    color: "cyan",
+    github: "https://github.com/dennish-8055/Reddit-Clone",
+  },
+  {
+    number: "07",
+    title: "Heart Disease Prediction System",
+    category: "Machine Learning",
+    description:
+      "A machine learning project focused on predicting heart disease using a Python-based application and machine learning techniques.",
+    technologies: [
+      "Python",
+      "Machine Learning",
       "Django",
       "Scikit-learn",
       "SQLite",
-      "Machine Learning",
     ],
-    color: "cyan",
-    private: true,
+    color: "blue",
+    github: "https://github.com/dennish-8055/Heart-Disease-Prediction-System",
   },
 ];
 
@@ -213,7 +299,7 @@ export default function Home() {
           {/* Hero Content */}
           <div className="animate-fade-up">
             <p className="mb-5 text-xs font-medium uppercase tracking-[0.28em] text-blue-400 sm:text-sm">
-              MCA Graduate • Software & Technology
+              MCA Graduate • IT & Technology
             </p>
 
             <h1 className="text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
@@ -224,14 +310,14 @@ export default function Home() {
             </h1>
 
             <p className="mt-7 max-w-xl text-base leading-8 text-gray-300 sm:text-lg">
-              I build web applications, work with databases and APIs, and
-              enjoy understanding how software works from end to end.
+              I enjoy solving technical problems and exploring how applications,
+              systems, networks, and security technologies work together.
             </p>
 
             <p className="mt-4 max-w-xl text-sm leading-7 text-gray-500 sm:text-base">
-              MCA graduate with hands-on experience in software development,
-              testing concepts, databases, REST APIs, and application
-              deployment.
+              MCA graduate with hands-on project experience across software
+              development, application testing, databases, networking,
+              cybersecurity fundamentals, and REST APIs.
             </p>
 
             <div className="mt-9 flex flex-wrap gap-4">
@@ -254,9 +340,9 @@ export default function Home() {
             {/* Stats */}
             <div className="mt-12 flex flex-wrap gap-x-10 gap-y-6">
               <div>
-                <p className="text-2xl font-bold">3+</p>
+                <p className="text-2xl font-bold">7+</p>
                 <p className="mt-1 text-sm text-gray-500">
-                  Major Projects
+                  Projects
                 </p>
               </div>
 
@@ -302,26 +388,26 @@ export default function Home() {
                     degree: <span className="text-green-300">&quot;MCA&quot;</span>,
                   </p>
 
-                  <p className="pl-4 sm:pl-5">stack: [</p>
+                  <p className="pl-4 sm:pl-5">areas: [</p>
 
                   <p className="pl-8 text-blue-300">
-                    &quot;React&quot;,
+                    &quot;IT Support&quot;,
                   </p>
 
                   <p className="pl-8 text-blue-300">
-                    &quot;Next.js&quot;,
+                    &quot;Cybersecurity&quot;,
                   </p>
 
                   <p className="pl-8 text-blue-300">
-                    &quot;Node.js&quot;,
+                    &quot;Networking&quot;,
                   </p>
 
                   <p className="pl-8 text-blue-300">
-                    &quot;Python&quot;,
+                    &quot;Software Testing&quot;,
                   </p>
 
                   <p className="pl-8 text-blue-300">
-                    &quot;SQL&quot;
+                    &quot;Development&quot;
                   </p>
 
                   <p className="pl-4 sm:pl-5">],</p>
@@ -361,23 +447,26 @@ export default function Home() {
             <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-7 sm:p-8 lg:col-span-2">
               <p className="text-base leading-8 text-gray-300 sm:text-lg">
                 I am an MCA graduate from M.S. Ramaiah Institute of
-                Technology with a strong foundation in computer science
-                and hands-on experience in building web applications.
+                Technology with a foundation in computer science and
+                practical exposure to different areas of IT through
+                academic work, an internship, and hands-on projects.
               </p>
 
               <p className="mt-6 leading-8 text-gray-400">
-                I have worked on projects involving React, Next.js,
-                Node.js, Python, Django, JavaScript, TypeScript, SQL,
-                PostgreSQL, MongoDB, REST APIs, and AWS basics.
+                My technical exposure includes programming, web technologies,
+                databases, REST APIs, application testing, networking,
+                and cybersecurity fundamentals. I have used tools and
+                technologies such as Python, JavaScript, SQL, Postman,
+                Wazuh, and Wireshark in my projects.
               </p>
 
               <p className="mt-6 leading-8 text-gray-400">
-                My projects include a Reddit-style community platform,
-                an AI-powered data analytics dashboard, and a machine
-                learning web application. Through these projects, I have
-                worked with application workflows, databases, APIs,
-                authentication, input validation, data processing, and
-                deployment.
+                My projects include a Wazuh security monitoring lab, a phishing
+                email investigation tool, network traffic analysis with
+                Wireshark, REST API testing with Postman, and web
+                application development. These projects have helped me
+                practice technical investigation, validation, problem
+                solving, and documenting my work.
               </p>
             </div>
 
@@ -403,10 +492,10 @@ export default function Home() {
               <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-6 transition hover:-translate-y-1 hover:border-cyan-400/30">
                 <p className="text-sm text-gray-500">Focus</p>
                 <p className="mt-2 text-xl font-semibold">
-                  Software & Technology
+                  IT & Technology
                 </p>
                 <p className="mt-1 text-sm text-gray-400">
-                  Building, testing & learning
+                  Exploring, troubleshooting & learning
                 </p>
               </div>
             </div>
@@ -428,8 +517,9 @@ export default function Home() {
             </h2>
 
             <p className="mt-5 leading-7 text-gray-400">
-              A mix of programming, web development, databases, testing
-              concepts, APIs, and development tools.
+              A broad foundation across programming, software development,
+              testing, cybersecurity, networking, databases, APIs,
+              and common technical tools.
             </p>
           </div>
 
@@ -553,9 +643,9 @@ export default function Home() {
             </h2>
 
             <p className="mt-5 leading-7 text-gray-400">
-              A selection of projects where I worked with application
-              development, databases, APIs, authentication, data
-              processing, and deployment.
+              A selection of hands-on projects covering IT operations,
+              cybersecurity, networking, software testing, APIs,
+              and application development.
             </p>
           </div>
 
@@ -621,11 +711,7 @@ export default function Home() {
                     </div>
 
                     <div className="mt-8">
-                      {project.private ? (
-                        <span className="inline-flex rounded-full border border-white/10 bg-white/5 px-5 py-2.5 text-sm font-medium text-gray-400">
-                          Private Project
-                        </span>
-                      ) : (
+                      {project.github ? (
                         <a
                           href={project.github}
                           target="_blank"
@@ -634,7 +720,7 @@ export default function Home() {
                         >
                           View on GitHub ↗
                         </a>
-                      )}
+                      ) : null}
                     </div>
                   </div>
                 </article>
