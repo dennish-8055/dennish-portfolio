@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Dennish Yadav | MCA Graduate",
+  title: "Dennish Yadav | IT & Technology Graduate",
   description:
-    "Portfolio of Dennish Yadav, an MCA graduate with hands-on experience in software development, web applications, databases, REST APIs, testing concepts, and application deployment.",
+    "Portfolio of Dennish Yadav, an MCA graduate with hands-on project experience in IT, software development, application testing, databases, networking, cybersecurity fundamentals, and REST APIs.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
